@@ -109,34 +109,6 @@
     color: #2563eb;
   }
 
-  /* Счетчик очков слева-сверху, поверх игрового поля */
-  #snake-widget .score-overlay {
-    position: absolute;
-    top: 0.75rem;
-    left: 0.75rem;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.4rem 0.7rem;
-    background: rgba(255, 255, 255, 0.92);
-    border: 1px solid #e2e8f0;
-    border-radius: 999px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    font-size: 0.8rem;
-    font-weight: 700;
-  }
-
-  #snake-widget .score-overlay .score-label {
-    color: #9ca3af;
-    font-weight: 600;
-  }
-
-  #snake-widget .score-overlay .score-value {
-    color: #2563eb;
-    font-variant-numeric: tabular-nums;
-  }
-
   /* Игровое поле */
   #snake-widget .board-wrap {
     display: flex;
@@ -567,10 +539,6 @@
     </div>
 
     <div class="board-wrap">
-      <div class="score-overlay">
-        <span class="score-label">Очки:</span>
-        <span id="overlay-score" class="score-value">0</span>
-      </div>
       <div id="board" class="board"></div>
     </div>
 
@@ -647,7 +615,6 @@
         const boardEl = widget.querySelector('#board');
         const scoreEl = widget.querySelector('#score-count');
         const bestEl = widget.querySelector('#best-count');
-        const overlayScoreEl = widget.querySelector('#overlay-score');
         const newGameBtn = widget.querySelector('#new-game-btn');
         const pauseBtn = widget.querySelector('#pause-btn');
         const winMessage = widget.querySelector('#win-message');
@@ -902,7 +869,6 @@
 
         function updateStats() {
           scoreEl.textContent = gameState.score;
-          overlayScoreEl.textContent = gameState.score;
         }
 
         // Смена направления с защитой от разворота на 180 градусов
